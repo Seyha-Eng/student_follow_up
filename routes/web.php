@@ -25,6 +25,9 @@ Route::get('/', function(){
     return view('auth.login');
 });
 
-// Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/index', 'indexController@index')->name('index');
+// Route::get('/index', 'indexController@index')->name('index');
+Route::resource('student', 'studentController');
+Route::get('/return_followup','studentController@return_followup')->name('return_followup');
+

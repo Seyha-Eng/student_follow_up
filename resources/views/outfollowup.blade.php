@@ -10,10 +10,10 @@
       <div class="col-12">
         <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Followup</a>
+            <a class="nav-link " href="home">Followup</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="return_followup">Out of Followup</a>
+            <a class="nav-link active" href="#">Out of Followup</a>
           </li>
           
         </ul> <br>
@@ -29,7 +29,7 @@
                 </tr>
 
                 @foreach ($students as $student)
-                @if($student -> activeFollowup == 1 )
+                @if($student -> activeFollowup == 0 )
 
                 
                 <tr>
@@ -40,7 +40,7 @@
                     <td>{{$student->description}}</td>
                     <td>
                         {{-- <a href="{{route('student.edit',$student->id)}}"><button><i class='fas fa-pen' style="color: teal"></i></button></a> --}}
-                        <a href="{{route('student.edit',$student->id)}}">Edit</a>
+                        <a href="{{route('student.edit',$student->id)}}">Add to followup</a>
                     </td>
                 </tr>
                 
