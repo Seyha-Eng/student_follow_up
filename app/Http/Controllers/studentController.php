@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Student;
+
 class studentController extends Controller
 {
     /**
@@ -21,6 +22,15 @@ class studentController extends Controller
         $students = Student::all();
         return view('outfollowup',compact('students'));
     }
+    
+    public function outfollowup($id)
+    {
+        $students -> Student::find($id);
+        $students -> activeFollowup = 0;
+        $students -> save();
+        return redirect('outfollowup');
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -46,10 +56,18 @@ class studentController extends Controller
         $students -> lastname=$request->get('lastname');
         $students -> class=$request->get('class');
         $students -> description=$request->get('description');
-        $students -> picture=$request->get('Picture');
+        // $students -> picture=$request->get('Picture');
+        if ($request->hasfile('picture')){
+            $file = $request->file('picture');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time(). ".".$extension;
+            $file->move('picture/', $filename);
+            $students->picture = $filename;
+            $students->save();
+        }
         $students -> activeFollowup = 1 ;
         $students ->save();
-        return redirect('student');
+        return redirect('home');
     }
     /**
      * Display the specified resource.
@@ -84,16 +102,24 @@ class studentController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $student = Student::find($id);
-        $student -> firstname=$request->get('firstname');
-        $student -> lastname=$request->get('lastname');
-        $student -> class=$request->get('class');
-        $student -> description= $request->get('description');
-        $student -> picture=$request->get('Picture');
-      
-        $student ->save();
-        // return redirect('students');
-        return redirect('student');
+        
+        $students = Student::find($id);
+        $students -> firstname=$request->get('firstname');
+        $students -> lastname=$request->get('lastname');
+        $students -> class=$request->get('class');
+        $students -> description=$request->get('description');
+        // $students -> picture=$request->get('Picture');
+        if ($request->hasfile('picture')){
+            $file = $request->file('picture');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time(). ".".$extension;
+            $file->move('picture/', $filename);
+            $students->picture = $filename;
+            $students->save();
+        }
+        $students -> activeFollowup = 1 ;
+        $students ->save();
+        return redirect('home');
     }
 
     /**

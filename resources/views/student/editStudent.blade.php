@@ -21,7 +21,7 @@
         </div>
         <div class="form-group">
             <label for="">Picture</label>
-            <input type="text" name="Picture" placeholder="picture" value="{{$student->picture}}">
+            <input type="text" name="picture" placeholder="picture" value="{{$student->picture}}">
         </div>
         <button type="submit" class="btn btn-success">Edit</button>
     </form>

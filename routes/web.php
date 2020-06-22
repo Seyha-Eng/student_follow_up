@@ -27,7 +27,8 @@ Route::get('/', function(){
 
 
 // Route::get('/index', 'indexController@index')->name('index');
-// Route::get('/index', 'indexController@index')->name('index');
+
 Route::resource('student', 'studentController');
 Route::get('/return_followup','studentController@return_followup')->name('return_followup');
+Route::get('/outfollowup/{id}','studentController@outfollowup')->name('outfollowup');
 

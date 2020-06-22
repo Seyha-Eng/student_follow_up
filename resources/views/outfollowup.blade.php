@@ -13,18 +13,18 @@
             <a class="nav-link " href="home">Followup</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">Out of Followup</a>
+            <a class="nav-link active" href="#">Out Of Followup</a>
           </li>
           
         </ul> <br>
-            <a href="{{route('student.create')}}"><button class="btn btn-primary">add student</button></a>
+            {{-- <a href="{{route('student.create')}}"><button class="btn btn-primary">add student</button></a> --}}
             <table class="table table-bordered">
                 <tr>
                     <th>Picture</th>
                     <th>Firstname</th>
                     <th>Lastname</th>
                     <th>Class</th>
-                    <th>Description</th>
+                    {{-- <th>Description</th> --}}
                     <th>Action</th>
                 </tr>
 
@@ -37,9 +37,8 @@
                     <td>{{$student->firstname}}</td>
                     <td>{{$student->lastname}}</td>
                     <td>{{$student->class}}</td>
-                    <td>{{$student->description}}</td>
+                    {{-- <td>{{$student->description}}</td> --}}
                     <td>
-                        {{-- <a href="{{route('student.edit',$student->id)}}"><button><i class='fas fa-pen' style="color: teal"></i></button></a> --}}
                         <a href="{{route('student.edit',$student->id)}}">Add to followup</a>
                     </td>
                 </tr>

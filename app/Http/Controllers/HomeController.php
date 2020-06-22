@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Student;
+use App\User;
 class HomeController extends Controller
 {
     /**
@@ -23,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $user   = User::all();
         $students = Student::all();
-         return view('home',compact('students'));
+         return view('home',compact(['user','students']));
     }
 }
