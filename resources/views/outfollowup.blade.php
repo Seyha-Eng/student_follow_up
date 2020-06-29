@@ -10,7 +10,7 @@
       <div class="col-12">
         <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link " href="home">Followup</a>
+            <a class="nav-link " href="home">Follow Up</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="#">Out Of Followup</a>
@@ -33,7 +33,7 @@
 
                 
                 <tr>
-                    <td>{{$student->picture}}</td>
+                    <td><img src="{{asset('Picture/'.$student->picture)}}" width="100px;" height="100px;"></td>
                     <td>{{$student->firstname}}</td>
                     <td>{{$student->lastname}}</td>
                     <td>{{$student->class}}</td>

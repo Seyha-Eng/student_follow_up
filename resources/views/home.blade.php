@@ -9,7 +9,7 @@
       <div class="col-12">
         <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Followup</a>
+            <a class="nav-link active" href="#">Follow Up</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="return_followup">Out Of Followup</a>
@@ -25,7 +25,7 @@
                     
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <img style="width: 50px; height:50px;" src="img/student.png" class="img-fluid rounded-circle"> <h4 class="modal-title">Add New Student</h4>
+                        <h4 class="modal-title">Add New Student</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     
@@ -89,7 +89,7 @@
                     <th>Firstname</th>
                     <th>Lastname</th>
                     <th>Class</th>
-                    <th>Action</th>
+                    <th class="text-center">Action</th>
                     {{-- <th>Description</th> --}}
                 </tr>
 
@@ -105,6 +105,7 @@
                     {{-- <td>{{$student->description}}</td> --}}
                     <td>
                     {{-- Modal for add edit students --}}
+                    
                     <a href="" data-toggle="modal" data-target="#myModals{{$student->id}}" ><button class="btn btn-primary">Edit</button></a>
                         <!-- The Modal -->
                       
@@ -116,7 +117,8 @@
                     
                       <!-- Modal Header -->
                       <div class="modal-header">
-                        <img style="width: 50px; height:50px;" src="img/student.png" class="img-fluid rounded-circle"> <h4 class="modal-title">Edit Student</h4>
+                        {{-- <img style="width: 50px; height:50px;" src="img/student.png" class="img-fluid rounded-circle"> <h4 class="modal-title">Add New Student</h4> --}}
+                        <img style="width: 50px; height:50px;" src="{{asset('Picture/'.$student->picture)}}" class="img-fluid rounded-circle"> <h4 class="modal-title">Edit Student</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                       </div>
                       
@@ -170,10 +172,8 @@
                     </div>
                     </div>
                     </div>
-                    
-                        <a href="{{route('outfollowup',$student->id)}}">Remove</a> 
-                    </td>
-                </tr>
+                        {{-- <a href="{{route('outfollowup',$student->id)}}"><button class="btn btn-primary">Comment</button></a> --}}
+                        <a href="{{route('student.show',$student->id)}}"  ><button class="btn btn-primary">View</button></a>
                 
                 @endif
                 @endforeach

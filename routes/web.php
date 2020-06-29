@@ -31,4 +31,7 @@ Route::get('/', function(){
 Route::resource('student', 'studentController');
 Route::get('/return_followup','studentController@return_followup')->name('return_followup');
 Route::get('/outfollowup/{id}','studentController@outfollowup')->name('outfollowup');
-
+Route::post('/addComment/{id}','commentController@addComment')->name('addComment');
+Route::get('/showComment','commentController@showComment')->name('showComment');
+Route::put('/updateComments/{id}','commentController@updateComments')->name('updateComments');
+Route::delete('/deleteComments/{id}','commentController@deleteComments')->name('deleteComments');

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Student;
+use App\User;
+use Illuminate\Support\Facades\Auth;
+use Image;
 
 class studentController extends Controller
 {
@@ -14,8 +17,8 @@ class studentController extends Controller
      */
     public function index()
     {
-        // $students = Student::all();
-        // return view('home',compact('students'));
+        $students = Student::all();
+        return view('home',compact('students'));
     }
     public function return_followup()
     {
@@ -77,7 +80,8 @@ class studentController extends Controller
      */
     public function show($id)
     {
-        //
+        $students=Student::find($id);
+        return view('detailStudent',compact('students'));
     }
 
     /**
@@ -102,13 +106,13 @@ class studentController extends Controller
     public function update(Request $request, $id)
     {
         //
-        
+        $users=User::find(Auth::id());
         $students = Student::find($id);
         $students -> firstname=$request->get('firstname');
         $students -> lastname=$request->get('lastname');
         $students -> class=$request->get('class');
         $students -> description=$request->get('description');
-        // $students -> picture=$request->get('Picture');
+        $students -> picture=$request->get('Picture');
         if ($request->hasfile('picture')){
             $file = $request->file('picture');
             $extension = $file->getClientOriginalExtension();
@@ -133,3 +137,5 @@ class studentController extends Controller
         //
     }
 }
+
+
