@@ -23,7 +23,7 @@
                     <th>Firstname</th>
                     <th>Lastname</th>
                     <th>Class</th>
-                    {{-- <th>Description</th> --}}
+                   
                     <th>Action</th>
                 </tr>
 
@@ -36,10 +36,11 @@
                     <td>{{$student->firstname}}</td>
                     <td>{{$student->lastname}}</td>
                     <td>{{$student->class}}</td>
-                    {{-- <td>{{$student->description}}</td> --}}
+                  
                     <td>
-                        {{-- <a href="{{route('followup',$student->id)}}"><button class="btn btn-primary">Back</button></a> --}}
-                        <a href=""><button class="btn btn-primary">Back</button></a>
+                        <a href="{{route('backfollowup',$student->id)}}"><button class="btn btn-primary">Back</button></a>
+                       
+                        
                     </td>
                 </tr>
                 
