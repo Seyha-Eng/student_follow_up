@@ -135,13 +135,14 @@ class studentController extends Controller
         $students -> save();
         return redirect('/return_followup');
     }
-    public function backfollowup($id)
+    public function followup($id)
     {
         $students = Student::find($id);
         $students -> activeFollowup = 1;
         $students -> save();
-        return redirect('/home');
+        return redirect('/followup');
     }
+    
 
 }
 

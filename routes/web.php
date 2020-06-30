@@ -35,4 +35,5 @@ Route::post('/addComment/{id}','commentController@addComment')->name('addComment
 Route::get('/showComment','commentController@showComment')->name('showComment');
 Route::put('/updateComments/{id}','commentController@updateComments')->name('updateComments');
 Route::delete('/deleteComments/{id}','commentController@deleteComments')->name('deleteComments');
-Route::get('/backfollowup/{id}','studentController@backfollowup')->name('backfollowup');
+// Route::get('/followup/{id}','studentController@followup')->name('followup');
+Route::get('/followup/{id}','studentController@followup')->name('followup');
