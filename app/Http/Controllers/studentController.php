@@ -26,14 +26,6 @@ class studentController extends Controller
         return view('outfollowup',compact('students'));
     }
     
-    public function outfollowup($id)
-    {
-        $students -> Student::find($id);
-        $students -> activeFollowup = 0;
-        $students -> save();
-        return redirect('outfollowup');
-    }
-
 
     /**
      * Show the form for creating a new resource.
@@ -136,6 +128,19 @@ class studentController extends Controller
     {
         //
     }
-}
+    public function outfollowup($id)
+    {
+        $students = Student::find($id);
+        $students -> activeFollowup = 0;
+        $students -> save();
+        return redirect('/return_followup');
+    }
+    // public function followup($id)
+    // {
+    //     $students = Student::find($id);
+    //     $students -> activeFollowup = 1;
+    //     $students -> save();
+    //     return redirect('/home');
+    // }
 
-
+    }

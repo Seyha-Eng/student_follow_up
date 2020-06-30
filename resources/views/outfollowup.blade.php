@@ -17,7 +17,6 @@
           </li>
           
         </ul> <br>
-            {{-- <a href="{{route('student.create')}}"><button class="btn btn-primary">add student</button></a> --}}
             <table class="table table-bordered">
                 <tr>
                     <th>Picture</th>
@@ -39,7 +38,8 @@
                     <td>{{$student->class}}</td>
                     {{-- <td>{{$student->description}}</td> --}}
                     <td>
-                        <a href="{{route('student.edit',$student->id)}}">Add to followup</a>
+                        {{-- <a href="{{route('followup',$student->id)}}"><button class="btn btn-primary">Back</button></a> --}}
+                        <a href=""><button class="btn btn-primary">Back</button></a>
                     </td>
                 </tr>
                 
