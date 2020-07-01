@@ -10,13 +10,12 @@
                 @csrf
                 <div class="card">
                     <div class="card-header text-center">
-                        {{-- <img src="/uploads/students/{{ $students->picture }}" width="100px;" height="100px;"> --}}
                         <img src="{{asset('Picture/'.$students->picture)}}" width="100px;" height="100px;">
                     </div>
                     <div class="card-body">
-                        <div class="col-3">{{$students->firstname}} {{$students->lastname}}</div>
-                        <div class="col-3"> <p>Class:{{$students->class}}</p></div>
-                        <div class="col-3"> <p>{{$students->description}}</p></div>
+                        <div class="col-3"><p>Username: {{$students->firstname}} {{$students->lastname}}</p></div>
+                        <div class="col-3"> <p>Class: {{$students->class}}</p></div>
+                        <div class="col-3"> <p>Description: {{$students->description}}</p></div>
                     </div>
                 </div><br>
             
@@ -32,7 +31,7 @@
                 <br>
                 
                     @foreach ($students->comments as $item)
-                    <strong>{{$item->user->firstname}}</strong>
+                    <strong>{{$item->user->firstname}}</strong> {{$item->created_at}}
                         <textarea class="form-control" name="comment" id="comment" cols="150" rows="3" disabled selected >{{$item->comment}}</textarea>
                         @if (Auth::user() && (Auth::user()->id == $item->user_id)) 
                                 
@@ -42,7 +41,7 @@
                                       <div class="modal-content">
                                           
                                           <div class="modal-header text-center">
-                                          <h2 class="modal-title">Edit Commentd</h2>
+                                          <h2 class="modal-title">Edit Comment</h2>
                                           <button type="button" class="close" data-dismiss="modal">&times;</button>
                                           </div>
                                        
@@ -54,7 +53,7 @@
                                                   <label for="comment">Comments:</label>
                                                   <textarea name="comment" id=""  class="form-control" cols="10" rows="5">{{$item->comment}}</textarea>
                                                   </div>
-                                                  <button type="submit" class="btn btn-primary">Submit</button>
+                                                  <button type="submit" class="btn btn-primary">Save changes</button>
                                                   <button type="button" class="btn btn-danger btn-right" data-dismiss="modal">Close</button>
                                               </form>
                                           </div>

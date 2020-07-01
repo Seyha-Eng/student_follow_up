@@ -172,8 +172,8 @@
                     </div>
                     </div>
                     </div>
-                        {{-- <a href="{{route('outfollowup',$student->id)}}"><button class="btn btn-primary">Comment</button></a> --}}
-                        <a href="{{route('student.show',$student->id)}}"  ><button class="btn btn-primary">View</button></a>
+                    <a href="{{route('student.show',$student->id)}}"><button class="btn btn-primary">View</button></a>
+                    <a href="{{route('outfollowup',$student->id)}}"><button class="btn btn-primary">Remove</button></a>
                 
                 @endif
                 @endforeach
