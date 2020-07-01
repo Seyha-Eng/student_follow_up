@@ -140,7 +140,7 @@ class studentController extends Controller
         $students = Student::find($id);
         $students -> activeFollowup = 1;
         $students -> save();
-        return redirect('/followup');
+        return redirect('/home');
     }
     
 

@@ -38,8 +38,7 @@
                     <td>{{$student->class}}</td>
                   
                     <td>
-                        <a href="{{route('followup',$student->id)}}"><button class="btn btn-primary">Back</button></a>
-                          
+                        <a href="{{route('followup',$student->id)}}"><button class="btn btn-primary">Back</button></a>    
                     </td>
                 </tr>
                 
